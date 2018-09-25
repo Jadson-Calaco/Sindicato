@@ -58,14 +58,13 @@
 					</tr>
 					
 					<tr style="font-size: 12px;">
-						<td with="21" colspan="1"><b>DATA NASC:</b></td>
-						<td>{{$socio->datanasc }}</td>
+						<td with="28" colspan="2"><b>DATA NASC:</b>&nbsp;{{$socio->data_nasc }}</td>
 						<td><b>NATURALIDADE: </b>{{$socio->naturalidade }}</td>
 						<td width="220"><b>SEXO:</b>{{$socio->sexo }}</td>
 					</tr>
 
 					<tr style="font-size: 12px;">
-						<td with="41" colspan="1"><b>NOME MÃE:</b></td>
+						<td width="100"><b>NOME MÃE:</b></td>
 						<td width="300">{{$socio->nomemae }}</td>
 					</tr>
 
@@ -219,6 +218,11 @@
 	
 	</table>
 
+
+	
+
+
+	
 
 </body>
 

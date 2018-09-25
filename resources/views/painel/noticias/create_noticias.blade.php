@@ -45,7 +45,7 @@
                             <div class="">
                                 <div class="col-lg-12">
                                     <!--data e hora da psotagem-->
-                                    <input name="data" type="hidden" class="form-control" id="create_data" value="<?= date('y-m-d') ?>">
+                                    <input name="data" type="hidden" class="form-control" id="create_data" value="<?= date('Y-m-d') ?>">
 
                                     <div class="row">
                                         <div class="form-group col-md-9">
@@ -272,6 +272,16 @@
 
         });
 
+    </script>
+    
+    <script type="text/javascript">
+
+        $(document).ready(function() {
+            $('#datatable').DataTable( {
+                "order": [[ 2, "desc" ]]
+            } );
+        } );
+    
     </script>
 
     @endsection

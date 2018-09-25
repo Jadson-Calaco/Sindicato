@@ -85,6 +85,8 @@
                                             <li><a href="{{url('/admin/diretoria') }}">A Diretoria</a></li>
                                             <li><a href="{{url('/admin/associados') }}">Associados</a></li>
                                             <li><a href="{{url('/admin/agendas') }}">Agenda Cultural</a></li>
+                                            <li><a href="{{url('/admin/imposto') }}">Imposto</a></li>
+                                            <li><a href="{{url('/admin/reatituicao') }}">Reatituicão</a></li>
 
 
                                             <li><a href="{{url('/admin/acordos') }}">Acordos e Convocações</a></li>

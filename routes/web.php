@@ -44,6 +44,14 @@ Route::group(['namespace'=>'Site'], function(){
     Route::post('associe-se','AssociadoController@store');
     Route::post('buscarSocio','AssociadoController@buscarDados');
     
+    Route::get('imposto','ImpostoController@imposto');
+    Route::post('imposto','ImpostoController@store');
+    Route::get('imposto_sindical_pdf', 'ImpostoController@gerarPdfImposto');
+    
+    Route::get('reatituicao','ReatituicaoController@index');
+    Route::post('reatituicao','ReatituicaoController@store');
+    Route::get('reatituicao_pdf','ReatituicaoController@gerarPdfReatituicao');
+       
     Route::get('contato','SiteController@contato');
     Route::post('contato','SiteController@storeContato');
 
@@ -312,6 +320,19 @@ Route::group(['namespace'=>'Site'], function(){
         // Contato
         Route::get('/contato','ContatoController@indexContato');
         Route::get('/deletar_contato/{id}', 'ContatoController@destroyContato');
+        
+        // Imposto
+        Route::get('/imposto','ImpostoController@impostos');
+        Route::get('/deletar_imposto/{id}', 'ImpostoController@destroy');
+        Route::get('/gerar_pdf_imposto/{id}', 'ImpostoController@gerarPdf');
+        Route::get('/detalhar_imposto/{id}', 'ImpostoController@detalhar');
+        
+        // Reatituicao
+        Route::get('/reatituicao','ReatituicaoController@reatituicao');
+        Route::get('/deletar_reatituicao/{id}', 'ReatituicaoController@destroy');
+        Route::get('/gerar_pdf_reatituicao/{id}', 'ReatituicaoController@gerarPdf');
+        Route::get('/detalhar_reatituicao/{id}', 'ReatituicaoController@detalhar');
+        
         
     });
         //Route::get('/home', 'HomeController@index');
