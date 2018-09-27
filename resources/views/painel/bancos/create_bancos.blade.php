@@ -32,7 +32,7 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Settings 1</a>
+                                    <!-- li><a href="#">Settings 1</a-->
                                     </li>
                                 </ul>
                             </li>
@@ -44,7 +44,7 @@
                             {!! csrf_field() !!}
                             <div class="col-lg-12">
                                 <div class="row">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-12">
                                         <label for="titulo">Nome</label>
                                         <input name="nome" type="text" class="form-control" id="nome" placeholder="Nome" required>
                                     </div>
@@ -71,23 +71,9 @@
         </div>
     </div>
 </div>
-    <!--tela de inserção de noticias-->
+    <!--tela de inser��o de noticias-->
     <div class="row">
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-        <script>
-
-$('a[data-target="#delete-modal"]').on('click', function (e) {
-    e.preventDefault();
-    var id = $(this).data('id');
-    $('span.nome').text(id);
-    $('#myModal').modal('show');
-    return false;
-});
-
-        </script>
-
+</script>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -133,7 +119,7 @@ $('a[data-target="#delete-modal"]').on('click', function (e) {
                                     <i class="fa fa-1x fa-fw fa-star-o"></i>
                                     @endif
                                 </a>
-                                        <a href="{!! url('admin/deletar_bancos/'.$dados->id) !!}" class="" title="Deletar Categoria" data-toggle="tooltip" data-placement="top"><i class="glyphicon glyphicon-trash"></i></a>
+                                        <a href="{!! url('admin/deletar_bancos/'.$dados->id) !!}" data-confirm ="Tem certeza ?" title="Deletar Categoria" data-toggle="tooltip" data-placement="top"><i class="glyphicon glyphicon-trash"></i></a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -149,4 +135,26 @@ $('a[data-target="#delete-modal"]').on('click', function (e) {
             <!-- /.col-lg-12 -->
         </div>
     </div>
-    @endsection
+ <!--deletando ddados com cofirmacao->   <!-- Modal -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+<script>
+$(document).ready(function(){
+		$('a[data-confirm]').click(function(ev){
+			var href = $(this).attr('href');
+			if(!$('#confirm-delete').length){
+	$('body').append('<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header bg-danger text-white">Exclir Item<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que Deseja EXCLUIR esse registro ?</div><div class="modal-footer"><button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmok">Deletar</a></div></div></div></div>')
+				}  
+				  $('#dataConfirmok').attr('href',href);
+	              $('#confirm-delete').modal({show:true});
+              
+			return false;
+		  
+		});
+});
+</script>
+
+ @endsection
+
+    

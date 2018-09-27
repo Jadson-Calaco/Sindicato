@@ -25,7 +25,7 @@
                         <select name="pol">
                        		 <option data-filter="*" value="All">Todas</option>
 							@foreach ($categorias as $cat) 	
-                               <option data-filter=".{{$cat->nome}}" value="{{$cat->nome}}">{!!$cat->nome !!}</option>
+                               <option data-filter=".{{ $cat->nome }}" value="{{$cat->nome}}">{!!$cat->nome or 'nada'!!}</option>
 							@endforeach
                         </select>
                     </div>
@@ -35,7 +35,7 @@
 
             <section class="portfolio_isotope_container three_columns">
                 @foreach ($noticias as $noticia) 
-                <div class="portfolio_item t_xs_align_c {!!$noticia->categorias->nome!!}">
+                <div class="portfolio_item t_xs_align_c {!!$noticia->categorias->nome or 'nada'!!}">
                 
                     <figure class="d_xs_inline_b">
                         <div class="photoframe with_buttons relative shadow r_corners wrapper m_bottom_15">
@@ -51,7 +51,7 @@
                         <figcaption class="t_xs_align_l">
                             <h4 class="m_bottom_3"><a href="ver-noticia/{{ $noticia->id}}/{{preg_replace('/[^a-zA-Z0-9.]+/', '-', $noticia->titulo)}}" class="color_dark"><b>{!!$noticia->titulo!!}</b></a></h4>
                             <hr><br>
-                            <a href="#" class="color_dark"><b>{!!$noticia->categorias->nome!!}</b></a>
+                            <a href="#" class="color_dark"><b>{!! $noticia->categorias->nome or 'NI'!!}</b></a>
                             <br><br>
                         </figcaption>
                     </figure>
@@ -59,16 +59,17 @@
                 @endforeach
 
             </section>
+              <hr class="m_bottom_15">
             <div class="row clearfix m_xs_bottom_30">
                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-5">
-                    <p class="d_inline_middle f_size_medium">Resultados {{$noticias->currentPage()}} de {{$noticias->count()}}</p>
+                    <p class="d_inline_middle f_size_medium">Resultados {{$noticias->currentPage()}} - {{$noticias->lastPage()}}</p>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-7 t_align_r">
                     <div class="horizontal_list clearfix d_inline_middle f_size_medium m_left_10">{!! $noticias->links() !!}</div>
                 </div>
             </div>
-
         </div>
+        
     </div>
 </div>
 </div>

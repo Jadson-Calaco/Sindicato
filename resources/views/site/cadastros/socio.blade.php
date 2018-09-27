@@ -6,7 +6,7 @@
 	<section class="breadcrumbs">
 		<div class="container">
 			<ul class="horizontal_list clearfix bc_list f_size_medium">
-				<li class="m_right_10 current"><a href="/public"
+				<li class="m_right_10 current"><a href="{{url('/')}}"
 					class="default_t_color">Inicio<i
 						class="fa fa-angle-right d_inline_middle m_left_10"></i></a></li>
 				<li><a href="#" class="default_t_color">{{$pag or "not found"}}</a></li>
@@ -371,7 +371,7 @@
 								</div>
 							</div>
 						</section>
-						@include('site.partes.menu_lateral')
+						 
 					</div>
 				</div>
 			</div>
@@ -379,7 +379,7 @@
 		</div>
 	</div>
 </div>
-
+</div>
 <script src="js/jquery-2.1.0.min.js"></script>
 
 <script>

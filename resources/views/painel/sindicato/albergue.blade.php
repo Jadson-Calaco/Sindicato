@@ -129,13 +129,20 @@
         </div>
     </div>
 </div>
-<script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
 <script>
-var options = {
-    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
-};
-</script>
+        var route_prefix = "{{ url(config('lfm.url_prefix', config('lfm.prefix'))) }}";
+    </script>
+    <!-- CKEditor init -->
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    <script>
+        var options = {
+
+            filebrowserImageBrowseUrl: route_prefix + '?type=Images',
+            filebrowserImageUploadUrl: route_prefix + '/upload?type=Images&_token=&_token={{csrf_token()}}',
+            filebrowserBrowseUrl: route_prefix + '?type=Files',
+            filebrowserUploadUrl: route_prefix + '/upload?type=Files&_token=&_token={{csrf_token()}}'
+        };
+
+        CKEDITOR.replace('summary-ckeditor', options);
+    </script>
 @endsection

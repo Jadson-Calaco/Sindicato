@@ -29,7 +29,7 @@
                                 <th align="center">Nome</th>
                                 <th align="center">Email</th>
                                 <th align="center">Mensagem</th>
-                                <th align="center">Ações</th>
+                                <th align="center">Aï¿½ï¿½es</th>
                             </tr>
                         </thead>
 
@@ -42,7 +42,7 @@
                                 <td align="center">{{$dados->email or '0 mes'}}</td>
                                 <td align="center">{{$dados->mensagem or 'sem nada'}}</td>
                                 <td class="center">
-                                    <a href="{!! url('admin/deletar_contato/'.$dados->id) !!}" class="" title="Deletar " data-toggle="tooltip" data-placement="top"><i class="glyphicon glyphicon-trash"></i></a>
+                                    <a href="{!! url('admin/deletar_contato/'.$dados->id) !!}"  data-confirm ="Tem certeza ?" class="" title="Deletar " data-toggle="tooltip" data-placement="top"><i class="glyphicon glyphicon-trash"></i></a>
                                 </td>
                             </tr>
                             @endforeach
@@ -53,4 +53,26 @@
         </div>
     </div>
 </div>
+
+<!--deletando ddados com confirmaÃ§Ã£o-->   <!-- Modal -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+ 
+<script>
+$(document).ready(function(){
+		$('a[data-confirm]').click(function(ev){
+			var href = $(this).attr('href');
+ 
+			if(!$('#confirm-delete').length){
+	$('body').append('<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header bg-danger text-white">Exclir Item<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que Deseja EXCLUIR esse registro ?</div><div class="modal-footer"><button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmOk">Deletar</a></div></div></div></div>')
+				}  
+				  $('#dataConfirmOk').attr('href',href);
+	              $('#confirm-delete').modal({show: true});
+              
+			return false;
+		  
+		});
+});
+</script>
+
 @endsection

@@ -60,7 +60,7 @@
                                 <div class="msgBox">
                                     <div class="content"></div>
                                     <button class="btn btn-default" type="button">Cancelar</button> 
-                                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                                    <button type="submit" class="btn btn-success">Cadastrarasdcasd</button>
                                 </div>
                         </div>
                             <div class="ln_solid"></div>

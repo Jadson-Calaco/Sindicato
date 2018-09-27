@@ -8,7 +8,7 @@ Route::group(['namespace'=>'Site'], function(){
     Route::get('/','SiteController@index');
     //busca
     Route::get('search','NoticiasController@search');
-    Route::get('teste','SiteController@teste');
+    //Route::get('teste','SiteController@teste');
     
     /*SEGURANCA BANCARIA*/
     Route::get('seguranca-bancaria','SegurancaBancariaController@index');
@@ -20,15 +20,15 @@ Route::group(['namespace'=>'Site'], function(){
     /*PUBLICACOES/INFORMATIVOS*/
     Route::get('ver-noticia/{id}/{titulo}','NoticiasController@ver_noticia');
     
-    /*PUBLICACOES/INFORMATIVOS*/
+    /*PUBLICACOES/INFORMATIVOS
     Route::get('teste','SiteController@teste');
     
-    /*GALERIA DE VIDEOS*/
+    /*GALERIA DE VIDEOS
     Route::get('teste','SiteController@teste');
     
-    /*GALERIA DE FOTOS*/
+    /*GALERIA DE FOTOS
     Route::get('teste','SiteController@teste');
-    /*ACESSORIA JURIDICA [ATENDIMENTOS]*/
+    /*ACESSORIA JURIDICA [ATENDIMENTOS]
     Route::get('teste','SiteController@teste');
     
     /*CONVENIOS*/
@@ -83,9 +83,9 @@ Route::group(['namespace'=>'Site'], function(){
     Route::post('/ouvidoria','OuvidoriaController@store');
     //
     
-    Route::get('videos', 'GaleriaController@getVideos');
+    Route::get('galeria-videos', 'GaleriaController@getVideos');
     Route::get('fotos/{id}', 'GaleriaController@getFotos');
-    Route::get('galerias', 'GaleriaController@getGalerias');
+    Route::get('galeria-fotos', 'GaleriaController@getGalerias');
 });
     /*rotas do painel*/
     $this->group(['middleware' =>['auth'], 'namespace' => 'Admin','prefix' => 'admin'], function() {

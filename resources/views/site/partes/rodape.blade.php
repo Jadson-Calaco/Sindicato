@@ -12,16 +12,16 @@
                     <h3 class="color_light_2 m_bottom_20">O Sindicato</h3>
                     <ul class="vertical_list">
                         <li>
-                            <a class="color_light tr_delay_hover" href="#">Conheça<i class="fa fa-angle-right"></i></a>
+                            <a class="color_light tr_delay_hover" href="{{url('contato')}}">Contato<i class="fa fa-angle-right"></i></a>
                         </li>
                         <li>
-                            <a class="color_light tr_delay_hover" href="#">O Sindicato<i class="fa fa-angle-right"></i></a>
+                            <a class="color_light tr_delay_hover" href="{{url('sindicato')}}">O Sindicato<i class="fa fa-angle-right"></i></a>
                         </li>
                         <li>
-                            <a class="color_light tr_delay_hover" href="#">A Diretoria<i class="fa fa-angle-right"></i></a>
+                            <a class="color_light tr_delay_hover" href="{{url('diretoria')}}">A Diretoria<i class="fa fa-angle-right"></i></a>
                         </li>
                         <li>
-                            <a class="color_light tr_delay_hover" href="#">O Estatuto<i class="fa fa-angle-right"></i></a>
+                            <a class="color_light tr_delay_hover" href="{{url('estatuto')}}">O Estatuto<i class="fa fa-angle-right"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -29,16 +29,16 @@
                     <h3 class="color_light_2 m_bottom_20">Noticias</h3>
                     <ul class="vertical_list">
                         <li>
-                            <a class="color_light tr_delay_hover" href="#">Nacionais<i class="fa fa-angle-right"></i></a>
+                            <a class="color_light tr_delay_hover" href="{{url('noticias-nacionais')}}">Nacionais<i class="fa fa-angle-right"></i></a>
                         </li>
                         <li>
-                            <a class="color_light tr_delay_hover" href="#">Locais<i class="fa fa-angle-right"></i></a>
+                            <a class="color_light tr_delay_hover" href="{{url('noticias-locais')}}">Locais<i class="fa fa-angle-right"></i></a>
                         </li>
                         <li>
-                            <a class="color_light tr_delay_hover" href="#">Esportivas<i class="fa fa-angle-right"></i></a>
+                            <a class="color_light tr_delay_hover" href="{{url('esportes')}}">Esportivas<i class="fa fa-angle-right"></i></a>
                         </li>
                         <li>
-                            <a class="color_light tr_delay_hover" href="#">Eventos do Mês<i class="fa fa-angle-right"></i></a>
+                            <a class="color_light tr_delay_hover" href="{{url('eventos')}}">Eventos do Mês<i class="fa fa-angle-right"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -46,10 +46,10 @@
                     <h3 class="color_light_2 m_bottom_20">Nossa Galeria</h3>
                     <ul class="vertical_list">
                         <li>
-                            <a class="color_light tr_delay_hover" href="#">Galeria de Fotos<i class="fa fa-angle-right"></i></a>
+                            <a class="color_light tr_delay_hover" href="{{url('galeria-fotos')}}">Galeria de Fotos<i class="fa fa-angle-right"></i></a>
                         </li>
                         <li>
-                            <a class="color_light tr_delay_hover" href="#">Galeria de Videos<i class="fa fa-angle-right"></i></a>
+                            <a class="color_light tr_delay_hover" href="{{url('galeria-videos')}}">Galeria de Videos<i class="fa fa-angle-right"></i></a>
                         </li>
                         <!--li>
                             <a class="color_light tr_delay_hover" href="#">Specials<i class="fa fa-angle-right"></i></a>

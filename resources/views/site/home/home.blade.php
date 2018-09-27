@@ -347,19 +347,19 @@
 					</button>
 				</div>
 			</div>
-			<!--bestsellers carousel-->
+			<!--bestsellers carousel>
 			<div class="nc_carousel m_bottom_30 m_sm_bottom_20">
 				<figure
 					class="r_corners photoframe animate_ftb long tr_all_hover type_2 t_align_c shadow relative">
-					<!--product preview-->
-					<a href="#" class="d_block relative pp_wrap m_bottom_15"> <!--hot product-->
+					<!--product preview>
+					<a href="#" class="d_block relative pp_wrap m_bottom_15"> <!--hot product>
 						<span class="hot_stripe type_2"></span> <img
 						src="images/product_img_5.jpg" class="tr_all_hover" alt=""> <span
 						role="button" data-popup="#quick_view_product"
 						class="button_type_5 box_s_none color_light r_corners tr_all_hover d_xs_none">Veja
 							mais...</span>
 					</a>
-					<!--description and price of product-->
+					<!--description and price of product>
 					<figcaption class="p_vr_0">
 						<h5 class="m_bottom_10">
 							<a href="#" class="color_dark">Aniversariantes do meses de Abril,
@@ -369,14 +369,14 @@
 				</figure>
 				<figure
 					class="r_corners photoframe animate_ftb long tr_all_hover type_2 t_align_c shadow relative">
-					<!--product preview-->
+					<!--product preview>
 					<a href="#" class="d_block relative pp_wrap m_bottom_15"> <img
 						src="images/product_img_8.jpg" class="tr_all_hover" alt=""> <span
 						role="button" data-popup="#quick_view_product"
 						class="button_type_5 box_s_none color_light r_corners tr_all_hover d_xs_none">Veja
 							mais...</span>
 					</a>
-					<!--description and price of product-->
+					<!--description and price of product>
 					<figcaption class="p_vr_0">
 						<h5 class="m_bottom_10">
 							<a href="#" class="color_dark">Aniversariantes do meses de Abril,
@@ -387,15 +387,15 @@
 				</figure>
 				<figure
 					class="r_corners photoframe animate_ftb long type_2 t_align_c shadow relative tr_all_hover">
-					<!--product preview-->
-					<a href="#" class="d_block relative pp_wrap m_bottom_15"> <!--sale product-->
+					<!--product preview>
+					<a href="#" class="d_block relative pp_wrap m_bottom_15"> <!--sale product>
 						<span class="hot_stripe type_2"></span> <img
 						src="images/product_img_4.jpg" class="tr_all_hover" alt=""> <span
 						role="button" data-popup="#quick_view_product"
 						class="button_type_5 box_s_none color_light r_corners tr_all_hover d_xs_none">Veja
 							mais...</span>
 					</a>
-					<!--description and price of product-->
+					<!--description and price of product>
 					<figcaption class="p_vr_0">
 						<h5 class="m_bottom_10">
 							<a href="#" class="color_dark">Aniversariantes do meses de Abril,
@@ -406,14 +406,14 @@
 				</figure>
 				<figure
 					class="r_corners photoframe animate_ftb long tr_all_hover type_2 t_align_c shadow relative">
-					<!--product preview-->
+					<!--product preview>
 					<a href="#" class="d_block relative wrapper pp_wrap m_bottom_15"> <img
 						src="images/product_img_6.jpg" class="tr_all_hover" alt=""> <span
 						role="button" data-popup="#quick_view_product"
 						class="button_type_5 box_s_none color_light r_corners tr_all_hover d_xs_none">Veja
 							mais..</span>
 					</a>
-					<!--description and price of product-->
+					<!--description and price of product>
 					<figcaption class="p_vr_0">
 						<h5 class="m_bottom_10">
 							<a href="#" class="color_dark">Aniversariantes do meses de Abril,
@@ -422,7 +422,7 @@
 
 					</figcaption>
 				</figure>
-			</div>
+			</div-->
 			<!--product brands-->
 			<div class="clearfix m_bottom_25 m_sm_bottom_20">
 				<div class="col-lg-9 col-md-4 col-sm-4 m_bottom_45 m_xs_bottom_30">

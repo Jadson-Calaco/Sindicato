@@ -85,22 +85,23 @@
                         <div class="f_left m_left_10 m_xs_left_0 f_xs_none">
                             <b class="color_dark m_left_20 m_bottom_5 m_top_5 d_inline_b"><a href="{{url('acessoria-juridica')}}"> Acessoria Jurídico</a></b>
                             <ul class="sub_menu">
+                            <!-- 
                                 <li>
                                     <a class="color_dark tr_delay_hover" href="{{url('atendimentos')}}">Atendimentos</a>
                                 </li>
                                 <li>
                                     <a class="color_dark tr_delay_hover" href="{{url('homologacoes')}}">Homologações</a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a class="color_dark tr_delay_hover" href="{{url('assedio')}}">Assédio Moral</a>
                                      
                                 </li>
                                 <!--li>
                                     <a class="color_dark tr_delay_hover" href="#">Orientações</a>
-                                </li-->
+                                </li>
                                 <li>
                                     <a class="color_dark tr_delay_hover" href="{{url('agenda-advogadas')}}">Agenda das Advogadas</a>
-                                </li>
+                                </li-->
 
                             </ul>
                         </div>
@@ -137,15 +138,15 @@
                     </div>
                 </li>
                 <li class="relative f_xs_none m_xs_bottom_5 m_left_10 m_xs_left_0">
-                    <a href="{{url('multimidia')}}" class="tr_delay_hover color_dark tt_uppercase r_corners"><b>Multimidia</b></a>
+                    <a href="" class="tr_delay_hover color_dark tt_uppercase r_corners"><b>Multimidia</b></a>
                     <!--sub menu-->
                     <div class="sub_menu_wrap top_arrow d_xs_none type_2 tr_all_hover clearfix r_corners">
                         <ul class="sub_menu">
                             <li>
-                                <a class="color_dark tr_delay_hover" href="{{url('galerias')}}">Galeria de Fotos</a>
+                                <a class="color_dark tr_delay_hover" href="{{url('galeria-fotos')}}">Galeria de Fotos</a>
                             </li>
                             <li>
-                                <a class="color_dark tr_delay_hover" href="{{url('videos')}}">Galeria de Videos</a>
+                                <a class="color_dark tr_delay_hover" href="{{url('galeria-videos')}}">Galeria de Videos</a>
                             </li>
 
                         </ul>

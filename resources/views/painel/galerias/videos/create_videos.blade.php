@@ -39,7 +39,7 @@
                         <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                    <form action="{{url('/admin/galeria/video/salvar') }}" method="POST" enctype="multipart/form-data" id="demo-form" data-parsley-validate class="form-horizontal form-label-left">
+                    <form action="{{url('/admin/galeria/videos/salvar') }}" method="POST" enctype="multipart/form-data" id="demo-form" data-parsley-validate class="form-horizontal form-label-left">
                         <!--div class="x_content">
                         <!-- iniciando formulario -->
                           {{ csrf_field() }}
@@ -88,7 +88,7 @@
 
                                   @if ($video!=null) 
                        
-                                    <button type="submit" class="btn btn-success" formaction="{{url('/admin/galeria/video/atualizar/'.$video->id) }}">Atualizar</button>
+                                    <button type="submit" class="btn btn-success" formaction="{{url('/admin/galeria/videos/atualizar/'.$video->id) }}">Atualizar</button>
                                  @else
                                      <button type="submit" class="btn btn-success">Cadastrar</button>
                                  @endif
@@ -142,7 +142,7 @@
                             <tr>
                                 <td>{{$video->id}}</td>
                                 <td>{{$video->nome}}
-                                   
+                                    
                                    
                                         <div class="col-md-12 col-sm-12 col-xs-12 tile_stats_count">
                                             <span class="count_top"><i class="fa fa-clock-o"></i> <small> Visualizações :
@@ -158,9 +158,9 @@
                                 <td><a href="{{$video->html}}" target="_blank">{{$video->html}}</a></td>
                                 <td>{{$video->data}}</td>
                                 <td class="center-margin" align="center"> 
-                                        <a href="{{url('/admin/galeria/video/editar/'.$video->id)}} "   title="Editar" data-toggle="tooltip" data-placement="top"><i class="fa fa-1x fa-pencil-square-o"></i></a>
-                                        <a href="{!! url('/admin/galeria/video/excluir/'.$video->id) !!} "  title="Deletar" data-toggle="tooltip" data-placement="top"><i class="fa fa-1x fa-trash"></i></a>
-                                        <a href="{!! url('admin/galeria/video/'.$video->id) !!}" class="" title="{{$video->status}}" data-toggle="tooltip" data-placement="top">
+                                        <a href="{{url('/admin/galeria/videos/editar/'.$video->id)}} "   title="Editar" data-toggle="tooltip" data-placement="top"><i class="fa fa-1x fa-pencil-square-o"></i></a>
+                                        <a href="{!! url('/admin/galeria/videos/excluir/'.$video->id) !!} " data-confirm ="Tem certeza ?"  title="Deletar" data-toggle="tooltip" data-placement="top"><i class="fa fa-1x fa-trash"></i></a>
+                                        <a href="{!! url('admin/galeria/videos/'.$video->id) !!}" class="" title="{{$video->status}}" data-toggle="tooltip" data-placement="top">
 
                                     @if($video->status=='S')
                                     <i class="fa fa-1x fa-fw fa-star"></i>
@@ -188,5 +188,24 @@
 </div>
 
 </div><!--fim rows-->
-
+<!--deletando ddados com confirmação-->   <!-- Modal -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+ 
+<script>
+$(document).ready(function(){
+		$('a[data-confirm]').click(function(ev){
+			var href = $(this).attr('href');
+ 
+			if(!$('#confirm-delete').length){
+	$('body').append('<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header bg-danger text-white">Exclir Item<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que Deseja EXCLUIR esse registro ?</div><div class="modal-footer"><button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmOk">Deletar</a></div></div></div></div>')
+				}  
+				  $('#dataConfirmOk').attr('href',href);
+	              $('#confirm-delete').modal({show: true});
+              
+			return false;
+		  
+		});
+});
+</script>
 @endsection

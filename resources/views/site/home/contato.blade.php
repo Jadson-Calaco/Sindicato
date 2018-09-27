@@ -7,7 +7,7 @@
 <section class="breadcrumbs">
     <div class="container">
         <ul class="horizontal_list clearfix bc_list f_size_medium">
-            <li class="m_right_10 current"><a href="/public" class="default_t_color">Inicio<i class="fa fa-angle-right d_inline_middle m_left_10"></i></a></li>
+            <li class="m_right_10 current"><a href="{{url('/')}}" class="default_t_color">Inicio<i class="fa fa-angle-right d_inline_middle m_left_10"></i></a></li>
             <li><a href="#" class="default_t_color">{{$pag or "not found"}}</a></li>
         </ul>
     </div>
@@ -19,9 +19,13 @@
                     <div class="row clearfix">
                         <!--left content column-->
                         <section class="col-lg-9 col-md-9 col-sm-9">
-                            <div class="r_corners photoframe map_container shadow m_bottom_45">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d584.725670229413!2d-42.8137438990093!3d-5.084241068929022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c8cc11dd4d43%3A0x37528b9bd59ade90!2sSindicato+dos+Banc%C3%A1rios+do+Piau%C3%AD!5e0!3m2!1spt-BR!2sbr!4v1509475076173" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-                            </div>
+                            <div
+								class="r_corners photoframe map_container shadow m_bottom_45">
+								<iframe
+									src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d584.725670229413!2d-42.8137438990093!3d-5.084241068929022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c8c8cc11dd4d43%3A0x37528b9bd59ade90!2sSindicato+dos+Banc%C3%A1rios+do+Piau%C3%AD!5e0!3m2!1spt-BR!2sbr!4v1509475076173"
+									width="600" height="450" frameborder="0" style="border: 0"
+									allowfullscreen></iframe>
+							</div>
                             <div class="row clearfix">
                                 <div class="col-lg-4 col-md-4 col-sm-4 m_xs_bottom_30">
                                     <h3 class="tt_uppercase color_dark m_bottom_25">Contatos</h3>
@@ -90,28 +94,28 @@
                                 </div>
                             </div>
                         </section>
-                        <!--right column-->
+                        <!--right column>
                         <aside class="col-lg-3 col-md-3 col-sm-3">
-                            <!--widgets-->
+                            <!--widgets>
                             <figure class="widget shadow r_corners wrapper m_bottom_30">
                                 <figcaption>
                                     <h3 class="color_light">Serviços</h3>
                                 </figcaption>
                                 <div class="widget_content">
-                                    <!--Categories list-->
+                                    <!--Categories list>
                                     <ul class="categories_list">
                                         <li class="active">
                                             <a href="#" class="f_size_large scheme_color d_block relative">
                                                 <b>Assuntos Jurídicos</b>
                                                 <span class="bg_light_color_1 r_corners f_right color_dark talign_c"></span>
                                             </a>
-                                            <!--second level-->
+                                            <!--second level>
                                             <ul>
                                                 <li class="active">
                                                     <a href="#" class="d_block f_size_large color_dark relative">
                                                         Ações<span class="bg_light_color_1 r_corners f_right color_dark talign_c"></span>
                                                     </a>
-                                                    <!--third level-->
+                                                    <!--third level>
                                                     <ul>
                                                         <li><a href="#" class="color_dark d_block">documento 1</a></li>
                                                         <li><a href="#" class="color_dark d_block">documento 2</a></li>
@@ -135,13 +139,13 @@
                                                 <b>Assédio Moral</b>
                                                 <span class="bg_light_color_1 r_corners f_right color_dark talign_c"></span>
                                             </a>
-                                            <!--second level-->
+                                            <!--second level>
                                             <ul class="d_none">
                                                 <li>
                                                     <a href="#" class="d_block f_size_large color_dark relative">
                                                         A<span class="bg_light_color_1 r_corners f_right color_dark talign_c"></span>
                                                     </a>
-                                                    <!--third level-->
+                                                    <!--third level>
                                                     <ul class="d_none">
                                                         <li><a href="#" class="color_dark d_block">A.1</a></li>
                                                         <li><a href="#" class="color_dark d_block">A.2</a></li>
@@ -168,11 +172,11 @@
                                             You have no product to compare.
                                     </div>
                             </figure-->
-                            <!--banner-->
+                            <!--banner>
                             <a href="#" class="d_block r_corners m_bottom_30">
                                 <img src="images/banner_img_6.jpg" alt="">
                             </a>
-                        </aside>
+                        </aside-->
                     </div>
                 </div>
             </div>

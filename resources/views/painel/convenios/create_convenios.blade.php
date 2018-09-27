@@ -217,7 +217,7 @@
                             <td class="center-margin" align="center">
                                 <a href="" class="" title="Visualizar" data-toggle="tooltip" data-placement="top"><i class="fa fa-1x fa-eye"></i></a>
                                 <a href="{!! url('admin/editar_convenio/'.$dados->id) !!}" class="" title="Editar Cadastro" data-toggle="tooltip" data-placement="top"><i class="fa fa-1x fa-pencil-square-o"></i></a>
-                                <a href="{!! url('admin/deletar_convenio/'.$dados->id) !!}" class="" title="Deletar Cadastro" data-toggle="tooltip" data-placement="top"><i class="glyphicon glyphicon-trash"></i></a>
+                                <a href="{!! url('admin/deletar_convenio/'.$dados->id) !!}" class="" data-confirm ="Tem certeza ?"  title="Deletar Cadastro" data-toggle="tooltip" data-placement="top"><i class="glyphicon glyphicon-trash"></i></a>
                                 <a href="{!! url('admin/status_convenio/'.$dados->id) !!}" class="" title="{{$dados->status}}" data-toggle="tooltip" data-placement="top">
 
                                     @if($dados->status=='S')
@@ -239,24 +239,24 @@
     </div>
 </div>
 </div>
-
-<!--tela de inserção de noticias-->
-<script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
-
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#datatable').DataTable( {
-        "order": [[ 1, "desc" ]]
-    } );
-} );
-</script>
-
+<!--deletando ddados com confirmação-->   <!-- Modal -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+ 
 <script>
-var options = {
-    filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-    filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-    filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-    filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token='
-};
+$(document).ready(function(){
+		$('a[data-confirm]').click(function(ev){
+			var href = $(this).attr('href');
+ 
+			if(!$('#confirm-delete').length){
+	$('body').append('<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header bg-danger text-white">Exclir Item<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que Deseja EXCLUIR esse registro ?</div><div class="modal-footer"><button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmOk">Deletar</a></div></div></div></div>')
+				}  
+				  $('#dataConfirmOk').attr('href',href);
+	              $('#confirm-delete').modal({show: true});
+              
+			return false;
+		  
+		});
+});
 </script>
 @endsection

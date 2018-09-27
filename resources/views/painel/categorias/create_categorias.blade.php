@@ -74,22 +74,7 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-<script>
-
-$('a[data-target="#delete-modal"]').on('click', function (e) {
-    e.preventDefault();
-    var id = $(this).data('id');
-    $('span.nome').text(id);
-    $('#myModal').modal('show');
-    return false;
-});
-
-</script>
-
+ 
 <div class="row">
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
@@ -127,16 +112,17 @@ $('a[data-target="#delete-modal"]').on('click', function (e) {
                             <td align="center">{{$dados->status or 'sem nada'}}</td>
 
                             <td align="center">
-                                <a href="{!! url('admin/editar_categoria/'.$dados->id) !!}" class="" title="Editar Categoria" data-toggle="tooltip" data-placement="top"><i class="glyphicon glyphicon-pencil"></i></a>
-                                <a href="{!! url('admin/status_categoria/'.$dados->id) !!}" class="" title="{{$dados->status}}" data-toggle="tooltip" data-placement="top">
+                                <a href="{!! url('admin/editar_categoria/'.$dados->id) !!}" title="Editar Categoria" data-toggle="tooltip" data-placement="top"><i class="glyphicon glyphicon-pencil"></i></a>
+                                <a href="{!! url('admin/status_categoria/'.$dados->id) !!}" title="{{$dados->status}}" data-toggle="tooltip" data-placement="top">
                                     @if($dados->status=='S')
                                     <i class="fa fa-1x fa-fw fa-star"></i>
                                     @else
                                     <i class="fa fa-1x fa-fw fa-star-o"></i>
                                     @endif
+                                </a>                                
+                                <a href="{!! url('admin/deletar_categoria/'.$dados->id) !!}" data-confirm ="Tem certeza ?" 
+                                    title="deletar"><i class="fa fa-1x fa-trash"></i><span></span>
                                 </a>
-                                <a href="{!! url('admin/deletar_categoria/'.$dados->id) !!}" class="" title="Deletar Categoria" data-toggle="tooltip" data-placement="top"><i class="glyphicon glyphicon-trash"></i></a>
-
                             </td>
                         </tr>
                         @endforeach
@@ -147,4 +133,27 @@ $('a[data-target="#delete-modal"]').on('click', function (e) {
     </div>
 </div>
 </div>
+
+</div><!--fim rows-->
+
+<!--deletando ddados com confirmação-->   <!-- Modal -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+ 
+<script>
+$(document).ready(function(){
+		$('a[data-confirm]').click(function(ev){
+			var href = $(this).attr('href');
+ 
+			if(!$('#confirm-delete').length){
+	$('body').append('<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header bg-danger text-white">Exclir Item<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que Deseja EXCLUIR esse registro ?</div><div class="modal-footer"><button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmOk">Deletar</a></div></div></div></div>')
+				}  
+				  $('#dataConfirmOk').attr('href',href);
+	              $('#confirm-delete').modal({show: true});
+              
+			return false;
+		  
+		});
+});
+</script>
 @endsection

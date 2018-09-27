@@ -20,7 +20,7 @@
 				<p class="f_size_big">Assessoria Juridíca</p>
 			</section>
 			<!--right column-->
-	@include('site.partes.menu_lateral')
+	<!-- @include('site.partes.menu_lateral')-->
 		</div>
 	</div>
 	 

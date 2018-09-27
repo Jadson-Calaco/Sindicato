@@ -20,7 +20,7 @@
 				<p class="f_size_big">{!! $albergues->descricao !!}</p>
 			</section>
 			<!--right column-->
-	@include('site.partes.menu_lateral')
+	<!-- @include('site.partes.menu_lateral') -->
 		</div>
 	</div>
 	@endforeach

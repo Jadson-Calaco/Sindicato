@@ -5,7 +5,7 @@
 	<section class="breadcrumbs">
 		<div class="container">
 			<ul class="horizontal_list clearfix bc_list f_size_medium">
-				<li class="m_right_10 current"><a href="/public"
+				<li class="m_right_10 current"><a href="{{url('/')}}"
 					class="default_t_color">Inicio<i
 						class="fa fa-angle-right d_inline_middle m_left_10"></i></a></li>
 				<li><a href="#" class="default_t_color">{{$pag or "not found"}}</a></li>
@@ -23,22 +23,22 @@
 					<!--tabs navigation-->
 					<nav>
 						<ul class="tabs_nav horizontal_list clearfix">
-							<li class="f_xs_none"><a href="#tab-1"
-								class="bg_light_color_1 color_dark tr_delay_hover r_corners d_block">Ocorrências </a></li>
+							<li class="f_xs_none"><a href="#ocorrencias"
+								class="bg_light_color_1 color_dark tr_delay_hover r_corners d_block">OcorrÃªncias </a></li>
 								
-							<li class="f_xs_none"><a href="#tab-2"
+							<li class="f_xs_none"><a href="#crimes"
 								class="bg_light_color_1 color_dark tr_delay_hover r_corners d_block">Modalidade	de Crime</a></li>
 									
-							<li class="f_xs_none"><a href="#tab-3"
+							<li class="f_xs_none"><a href="#bancos"
 								class="bg_light_color_1 color_dark tr_delay_hover r_corners d_block">Bancos</a></li>
 									
-							<li class="f_xs_none"><a href="#tab-4"
+							<li class="f_xs_none"><a href="#cidades"
 								class="bg_light_color_1 color_dark tr_delay_hover r_corners d_block">Cidades</a></li>
 						</ul>
 					</nav>
 					<!--tabs content-->
 					<section class="tabs_content shadow r_corners">
-						<div id="tab-1">
+						<div id="ocorrencias">
 							<!--h2 class="tt_uppercase color_dark m_bottom_25">Team Members</h2-->
 							<div class="row clearfix">
 							    <table class="table_type_7 responsive_table full_width t_align_l">
@@ -70,7 +70,7 @@
 							</div>
 							<!--fim tab-->
 						</div>
-						<div id="tab-2">
+						<div id="crimes">
 							<div class="row clearfix">
 								<table class="table_type_7 responsive_table full_width t_align_l">
 											<thead>
@@ -112,7 +112,7 @@
 						</div>
 
 						<!---fim tab-2 -->
-						<div id="tab-3">
+						<div id="bancos">
 							<div class="row clearfix">
 								<table class="table_type_7 responsive_table full_width t_align_l">
 											<thead>
@@ -156,7 +156,7 @@
 						</div>
 
 						<!--fim tab-3-->
-						<div id="tab-4">
+						<div id="cidades">
 							<div class="row clearfix">
 								<table class="table_type_7 responsive_table full_width t_align_l">
 											<thead>
@@ -196,6 +196,6 @@
 
 	</div>
 </div>
-
+</div>
 
 @endsection

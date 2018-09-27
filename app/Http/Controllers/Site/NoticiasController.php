@@ -53,7 +53,7 @@ class NoticiasController extends Controller
         }
         
         $noticias = Noticias::where('titulo','like',"%{$pag}%")
-        ->orderBy('data','desc')->simplePaginate(10);
+        ->orderBy('data','desc')->paginate(10);
         $categorias = Categorias::all();
         
         return view('site.home.search',['noticias'=>$noticias],compact('categorias','pag',$pag));
@@ -64,7 +64,7 @@ class NoticiasController extends Controller
     public function geral() /*noticias em geral*/
     {
         
-        $noticias = Noticias::orderBy('data','desc')->paginate(21);
+        $noticias = Noticias::orderBy('data','DESC')->paginate(21);
         $categorias = Categorias::all();
         $pag = "Noticias Gerais";
         //dd($noticias);

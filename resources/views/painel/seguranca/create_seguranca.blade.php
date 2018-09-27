@@ -24,7 +24,7 @@
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                     <div class="x_title">
-                        <h2>Cadastramento de <small>{{$titulo or 'Dados referente a Segurança Bancaria'}}</small></h2>
+                        <h2>Cadastramento de <small>{{$titulo or 'Dados referente a Seguranï¿½a Bancaria'}}</small></h2>
                         <ul class="nav navbar-right panel_toolbox">
                             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                             </li>
@@ -48,13 +48,13 @@
                                     <input name="data" type="hidden" class="form-control" id="create_data" value="<?= date('d/m/Y') ?>">
                                     <div class="row">
                                         <div class="form-group col-md-6">
-                                            <label for="n_titulo">Tipo Ocorrência*:</label>
+                                            <label for="n_titulo">Tipo Ocorrï¿½ncia*:</label>
                                             <div class="controls">
                                                 <select class="form-control"  id="c_tipo" name="ocorrencia" required>
-                                                     <option value="">Selecione a Ocorrência</option>
+                                                     <option value="">Selecione a Ocorrï¿½ncia</option>
                                                      <option value="Arrombamento">Arrombamento</option>
                                                      <option value="Assalto">Assalto</option>
-                                                     <option value="Explosão">Explosão</option>
+                                                     <option value="Explosï¿½o">Explosï¿½o</option>
                                                      <option value="Saidinha">Saidinha</option>
                                                      <option value="Tentativa">Tentativa</option>
                                                 </select>
@@ -85,7 +85,7 @@
                                                      <option value="Bradesco">Bradesco</option>
                                                      <option value="Caixa Economica">Caixa Economica</option>
                                                      <option value="HSBC">HSBC</option>
-                                                     <option value="Itaú">Itaú</option>
+                                                     <option value="Itaï¿½">Itaï¿½</option>
                                                      <option value="Outros">Outros</option>
                                                 </select>
                                             </div>
@@ -107,7 +107,7 @@
                                     <br>
                                     <div class="row">    
                                         <div class='col-sm-6'>
-                                            <label for="descricao">Descrição*:</label>
+                                            <label for="descricao">Descriï¿½ï¿½o*:</label>
                                             <textarea name="descricao" class="form-control" id="descricao" placeholder="Descreva aqui o ocorrido..."></textarea>
                                         </div>
                                         <br/>
@@ -156,7 +156,7 @@
                     <thead>
                         <tr>
                             <th width="5%">id</th>
-							<th>Ocorrência</th>
+							<th>Ocorrï¿½ncia</th>
 							<th>Cidade</th>
 							<th>Banco</th>
 							<th>Data</th>
@@ -183,7 +183,7 @@
 
                             <td class="center">
                                 <a href="{!! url('admin/editar_seguranca/'.$dados->id) !!}" class="" title="Editar Cadastro" data-toggle="tooltip" data-placement="top"><i class="fa fa-1x fa-pencil-square-o"></i></a>
-                                <a href="{!! url('admin/deletar_seguranca/'.$dados->id) !!}" class="" title="Deletar Cadastro" data-toggle="tooltip" data-placement="top"><i class="glyphicon glyphicon-trash"></i></a>
+                                <a href="{!! url('admin/deletar_seguranca/'.$dados->id) !!}" data-confirm ="Tem certeza ?"  title="Deletar Cadastro" data-toggle="tooltip" data-placement="top"><i class="glyphicon glyphicon-trash"></i></a>
                             </td>
                             <td><input type="checkbox" name="hobbies[]" id="hobby2" value="run" class="flat" /> 
                         </tr>
@@ -196,4 +196,25 @@
         </div>
     </div>
 </div>
+
+<!--deletando ddados com confirmaÃ§Ã£o-->   <!-- Modal -->
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+ 
+<script>
+$(document).ready(function(){
+		$('a[data-confirm]').click(function(ev){
+			var href = $(this).attr('href');
+ 
+			if(!$('#confirm-delete').length){
+	$('body').append('<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header bg-danger text-white">Exclir Item<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que Deseja EXCLUIR esse registro ?</div><div class="modal-footer"><button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmOk">Deletar</a></div></div></div></div>')
+				}  
+				  $('#dataConfirmOk').attr('href',href);
+	              $('#confirm-delete').modal({show: true});
+              
+			return false;
+		  
+		});
+});
+</script>
 @endsection

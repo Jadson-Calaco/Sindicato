@@ -31,10 +31,10 @@
         <link href="{{url('area/css/imgareaselect.css')}}" rel="stylesheet">
     </head>
 
-    <body class="nav-md">
+    <body class="nav-md footer_fixed">
         <div class="container body">
             <div class="main_container">
-                <div class="col-md-3 left_col menu_fixed">
+                <div class="col-md-3 left_col scroll-view">
                     <div class="left_col scroll-view">
 
                         <div class="navbar nav_title" style="border: 0;">
@@ -101,7 +101,7 @@
                                                 </ul>
                                             </li>
                                             
-                                            <li><a href="{{url('/admin/informativo') }}">Informativos</a></li>
+                                            <li><a href="{{url('/admin/informativos') }}">Informativos</a></li>
                                             <li><a href="{{url('/admin/estatuto') }}">Estatuto SEEBFPI</a></li>
                                             <li><a href="{{url('/admin/docs') }}">Documentos</a></li>  
                                             <li><a href="{{url('/admin/noticias') }}">Noticias</a></li>                                             

@@ -42,9 +42,10 @@
                 @endforeach
 
             </section>
+              <hr class="m_bottom_15">
             <div class="row clearfix m_xs_bottom_30">
                 <div class="col-lg-7 col-md-7 col-sm-7 col-xs-5">
-                    <p class="d_inline_middle f_size_medium">Resultados {{$noticias->currentPage()}} de {{$noticias->count()}}</p>
+                    <p class="d_inline_middle f_size_medium">Resultados {{$noticias->currentPage()}} - {{$noticias->lastPage()}}</p>
                 </div>
                 <div class="col-lg-5 col-md-5 col-sm-5 col-xs-7 t_align_r">
                     <div class="horizontal_list clearfix d_inline_middle f_size_medium m_left_10">{!! $noticias->links() !!}</div>
