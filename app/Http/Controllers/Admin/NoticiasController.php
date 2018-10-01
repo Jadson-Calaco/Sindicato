@@ -11,6 +11,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Intervention\Image\ImageManagerStatic as Image;
 use \Illuminate\Support\Facades\DB;
+use Datatables;
+use Router;
 
 class NoticiasController extends Controller
 {
@@ -248,5 +250,86 @@ class NoticiasController extends Controller
         
         $noticia = Noticias::find($id);
         return view('painel.noticias.show_noticias')->with('noticia', $noticia);
+    }
+    
+    function getDados(Request $request)
+    {
+       /*
+       $noticias = DB::table('noticias')
+       ->selectRaw("noticias.titulo as titulo, DATE_FORMAT(noticias.data, '%d/%m/%Y') as data1,noticias.categoria_id as categoria")
+        ->orderBy('noticias.data','DESC')
+        ->get();
+        
+        return \DataTables::of($noticias)->make(true);1 => 'categoria',*/
+        
+        $columns = array(
+            0 => 'titulo',
+            1 => 'data',
+            2 => 'id',
+        );
+        $totalNoticias = Noticias::count();
+        $totalFiltered = $totalNoticias;
+        
+        $limit = $request->input('length');
+        $start = $request->input('start');
+        $order = $columns[$request->input('order.0.column')];
+        $dir = $request->input('order.0.dir');
+        
+        if (empty($request->input('search.value'))) {
+            $noticias = Noticias::offset($start)
+            ->limit($limit)
+            ->orderBy($order, $dir)
+            ->get();
+        } else {
+            $search = $request->input('search.value');
+            
+            $noticias =  Noticias::orWhere('titulo', 'LIKE',"%{$search}%")
+            ->offset($start)
+            ->limit($limit)
+            ->orderBy($order,$dir)
+            ->get();
+            
+            $totalFiltered = Noticias::orWhere('titulo', 'LIKE',"%{$search}%")
+            ->count();
+        }
+        
+        $data = array();
+        if(!empty($noticias))
+        {
+            foreach ($noticias as $noticia)
+            {
+                
+                $edit =  route('admin.edit',$noticia->id );
+                $delete  =  route('admin.destroy',$noticia->id );
+                $status  =  route('admin.mudarStatus',$noticia->id );
+                
+                if($noticia->status=='S'){
+                     $icon = "<i class='fa fa-1x fa-fw fa-star'></i>";
+                }else{
+                    $icon = "<i class='fa fa-1x fa-fw fa-star-o'></i>";
+                }
+                 
+                
+                $nestedData['titulo'] = $noticia->titulo;
+               // $nestedData['categoria'] = $noticia->categorias->nome;
+                $nestedData['data'] = date('d/m/Y',strtotime($noticia->data));
+                $nestedData['opcoes'] = "&emsp;<a href='{$delete}' class='' title='Deletar Cadastro' data-toggle='tooltip' data-placement='top'><i class='glyphicon glyphicon-trash'></i></a>
+                                         &emsp;<a href='{$edit}' class='' title='Editar Cadastro' data-toggle='tooltip' data-placement='top'><i class='fa fa-1x fa-pencil-square-o'></i></a>
+                                         &emsp;<a href='{$status}' class='' title='{$noticia->status}' data-toggle='tooltip' data-placement='top'>" .$icon ."</a>";
+                                        
+                $data[] = $nestedData;
+                
+            }
+        }
+        
+        $json_data = array(
+            "draw" => intval($request->input('draw')),
+            "recordsTotal" => intval($totalNoticias),
+            "recordsFiltered" => intval($totalFiltered),
+            "data" => $data,
+        );
+        echo json_encode($json_data);
+        
+        
     }
 }

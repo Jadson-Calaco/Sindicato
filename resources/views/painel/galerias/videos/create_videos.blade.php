@@ -56,11 +56,11 @@
                                 <label for="f_descricao">Descrição/Local do Video* :</label>
                                 <textarea id="g_descricao" required="required" class="form-control" name="descricao" data-parsley-trigger="keyup" data-parsley-minlength="20" data-parsley-maxlength="100" data-parsley-validation-threshold="10">{{$video->descricao or ""}}</textarea> <br/>
                             </div>
-                            <input type="hidden" name="data" value="{{$dataAtual}}">
+                            <input type="hidden" name="data" value="{{ $dataAtual }}">
 
                             <div class='col-sm-9'>
                                 <label for="f_data">Data do Evento* :</label>
-                                <input type="date" id="g_data" class="form-control" name="data" value="{{$video->data or ""}}" required />
+                                <input type="date" id="g_data" class="form-control" name="dataEvento" value="{{$video->data or ""}}" required />
                             </div>
                            <!-- <div class='col-sm-9'>
                                 <label for="f_fotografo">Autor :</label>

@@ -39,7 +39,7 @@ class OuvidoriaController extends Controller
        Mail::send('site.ouvidoria.email', $data, function($message)  use ($data){
            
            $message->from($data['email'],$data['nome']);
-           $message->to('desenvolverdor.ideias@gmail.com')->subject('Ouvidoria - '.$data['tipo']);
+           $message->to('contato@bancariospi.org.br')->subject('Ouvidoria - '.$data['tipo']);
            
        });
      

@@ -160,12 +160,13 @@ Route::group(['namespace'=>'Site'], function(){
         // CRUD DE NOTICIAS
         Route::get('/noticias','NoticiasController@noticias');
         Route::post('/criar_noticia', 'NoticiasController@criar_noticia');
-        Route::get('/editar_noticia/{id}', 'NoticiasController@edit');
         Route::post('/editar_noticia/{id}', 'NoticiasController@update');
-        Route::get('/deletar_noticia/{id}', 'NoticiasController@destroy');
-        Route::get('/status_noticia/{id}', 'NoticiasController@mudarStatus');
         Route::get('visualizar_noticia/{id}','NoticiasController@show');
         Route::get('/index_noticias', 'NoticiasController@index');
+        Route::get('/editar_noticia/{id}', 'NoticiasController@edit')->name('admin.edit');
+        Route::get('/deletar_noticia/{id}', 'NoticiasController@destroy')->name('admin.destroy');
+        Route::get('/status_noticia/{id}', 'NoticiasController@mudarStatus')->name('admin.mudarStatus');
+        Route::post('/dadosNoticias', 'NoticiasController@getDados');
         
         // CRUD DE DIRETORIA
         Route::get('/diretoria', 'DiretoriaController@index');

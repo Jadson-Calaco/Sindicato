@@ -1,5 +1,6 @@
 @extends('layouts.Gentelella')
 @section('content')
+	
 <div class="row">
     <div class="">
         <div class="page-title">
@@ -187,53 +188,15 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                <table id="datatable" class="table table-striped table-bordered">
+              <table id="student_table" class="table table-striped table-bordered" style="width: 100%">
                     <thead>
                         <tr>
-                            
                             <th>Titulo</th>
-                            <th>Categoria</th>
                             <th>Criada</th>
-                            <th width="10%">Ações</th>
-    
+                            <th >Ações</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        @foreach($noticias as $dados)
-                        <tr class="odd gradeX">
-                            
-                            <td>
-                                <h2><a href="#">{{$dados->titulo or 'sem nada'}}</a></h2>
-
-                                <div class="col-md-12 col-sm-12 col-xs-12 tile_stats_count">
-                                    <span class="count_top"><i class="fa fa-clock-o"></i> <small> Visualizações :{{$dados->usuario->id or 'quantidade de pessoas '}} | </small> </span>
-                                    <span class="count_top"><i class="fa fa-user"></i> <small> Postado por :{{$dados->usuario->name or 'Nome do Jornalista'}} | </small> </span>
-                                    <span class="count_top"><i class="fa fa-calendar"></i> <small> Criado em :{{$dados->data or 'data'}} |</small> </span>
-                                </div>
-                            </td>
-                            <td>{{$dados->categorias->nome or 'sem nada'}}</td>
-                            <td class="center">{{$dados->data or '00/00/0000'}}</td>
-
-                            <td class="center">
-                                <a href="{!! url('admin/visualizar_noticia/'.$dados->id) !!}" class="" title="Visualizar" data-toggle="tooltip" data-placement="top"><i class="fa fa-1x fa-eye"></i></a>
-                                <a href="{!! url('admin/editar_noticia/'.$dados->id) !!}" class="" title="Editar Cadastro" data-toggle="tooltip" data-placement="top"><i class="fa fa-1x fa-pencil-square-o"></i></a>
-                                <a href="{!! url('admin/status_noticia/'.$dados->id) !!}" class="" title="{{$dados->status}}" data-toggle="tooltip" data-placement="top">
-
-                                    @if($dados->status=='S')
-                                    <i class="fa fa-1x fa-fw fa-star"></i>
-                                    @else
-                                    <i class="fa fa-1x fa-fw fa-star-o"></i>
-                                    @endif
-
-                                </a>
-
-                                <a href="{!! url('admin/deletar_noticia/'.$dados->id) !!}" data-confirm ="Tem certeza ?"  title="Deletar Cadastro" data-toggle="tooltip" data-placement="top"><i class="glyphicon glyphicon-trash"></i></a>
-                            </td>
-                           
-                        </tr>
-                        @endforeach
-                    </tbody>
-                    </tbody>
+                    
                 </table>
             </div>
         </div>
@@ -256,51 +219,34 @@
         CKEDITOR.replace('summary-ckeditor', options);
     </script>
     
+
+   
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+   <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+   <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+   <script 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	 
     <script>
-
-        $('#form').submit( function(e) {
-
-            var messageLength = CKEDITOR.instances['summary-ckeditor'].getData().replace(/<[^>]*>/gi, '').length;
-
-            if( !messageLength ) {
-
-                alert( 'Please enter a message' );
-
-                e.preventDefault();
-
-            }
-
+        $(document).ready(function () {
+            $('#student_table').DataTable({
+                "processing": true,
+                "serverSide": true,
+                "aaSorting": [[ 2, "desc" ]],
+                "ajax":{
+                         "url": "{{ url('/admin/dadosNoticias') }}",
+                         "dataType": "json",
+                         "type": "POST",
+                         "data":{ _token: "{{csrf_token()}}"}
+                       },
+                "columns": [
+                    { "data": "titulo" },
+                    { "data": "data" },
+                    { "data": "opcoes" }
+                ]	 
+    
+            });
         });
-
     </script>
-    
-    <script type="text/javascript">
 
-        $(document).ready(function() {
-            $('#datatable').DataTable( {
-                "order": [[ 2, "desc" ]]
-            } );
-        } );
-    
-    </script>
-<!--deletando ddados com confirmação-->   <!-- Modal -->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
- 
-<script>
-$(document).ready(function(){
-		$('a[data-confirm]').click(function(ev){
-			var href = $(this).attr('href');
- 
-			if(!$('#confirm-delete').length){
-	$('body').append('<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header bg-danger text-white">Exclir Item<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><div class="modal-body">Tem certeza que Deseja EXCLUIR esse registro ?</div><div class="modal-footer"><button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button><a class="btn btn-danger text-white" id="dataConfirmOk">Deletar</a></div></div></div></div>')
-				}  
-				  $('#dataConfirmOk').attr('href',href);
-	              $('#confirm-delete').modal({show: true});
-              
-			return false;
-		  
-		});
-});
-</script>
     @endsection

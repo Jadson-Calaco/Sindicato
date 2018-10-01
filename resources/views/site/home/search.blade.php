@@ -5,7 +5,7 @@
     <section class="breadcrumbs">
         <div class="container">
             <ul class="horizontal_list clearfix bc_list f_size_medium">
-                <li class="m_right_10 current"><a href="/public" class="default_t_color">Inicio<i class="fa fa-angle-right d_inline_middle m_left_10"></i></a></li>
+                <li class="m_right_10 current"><a href="{{ulr('/')}}" class="default_t_color">Inicio<i class="fa fa-angle-right d_inline_middle m_left_10"></i></a></li>
                 <li><a href="" class="default_t_color">{{$pag or "not found"}}</a></li>
             </ul>
         </div>
@@ -24,7 +24,7 @@
                       </ul>
                   </div>
                   <div class="clearfix m_bottom_25 relative cw_product">
-                      <a href="ver-noticia/{{ $posts->id}}/{{preg_replace('/[^a-zA-Z0-9.]+/', '-',$posts->titulo)}}"><img src="{{asset($posts->foto)}}" alt="{{ $posts->titulo }}" heigth="20%" width="20%" data-title="{!!$posts->titulo!!}" class="f_left m_right_15 m_sm_bottom_10 f_sm_none f_xs_left m_xs_bottom_0"></a>
+                      <a href="ver-noticia/{{ $posts->id}}/{{preg_replace('/[^a-zA-Z0-9.]+/', '-',$posts->titulo)}}"><img src="{{asset('/images/noticias/'.$posts->id .'/'.$posts->foto)}}" alt="{{ $posts->titulo }}" heigth="20%" width="20%" data-title="{!!$posts->titulo!!}" class="f_left m_right_15 m_sm_bottom_10 f_sm_none f_xs_left m_xs_bottom_0"></a>
                       <a href="ver-noticia/{{$posts->id}}/{{preg_replace('/[^a-zA-Z0-9.]+/', '-',$posts->titulo)}}" class="color_dark d_block bt_link">{{$posts->titulo}}</a>
                       <div class="clearfix m_bottom_10">
                       <ul class="horizontal_list d_inline_b l_width_divider">

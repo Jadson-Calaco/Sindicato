@@ -27,14 +27,14 @@
                             
                             <div class="open_buttons clearfix">
                                 <div class="f_left f_size_large tr_all_hover">
-                                    <a href="{{ $noticia->foto }}" role="button" class="color_light button_type_13 r_corners box_s_none d_block jackbox" data-group="Galeria" data-title="{!!$noticia->titulo!!}"><i class="fa fa-camera"></i>
+                                    <a href="{{asset('/images/noticias/'.$noticia->id .'/'.$noticia->foto)}}" role="button" class="color_light button_type_13 r_corners box_s_none d_block jackbox" data-group="Galeria" data-title="{!!$noticia->titulo!!}"><i class="fa fa-camera"></i>
                                     </a>
                                 </div>
                                 <div class="f_left m_left_10 f_size_large tr_all_hover"><a href="#" role="button" class="color_light button_type_13 r_corners box_s_none d_block"><i class="fa fa-link"></i></a></div>
                             </div>
                         </div>
                         <figcaption class="t_xs_align_l">
-                            <h4 class="m_bottom_3"><a href="ver-noticia/{{ $noticia->id}}" class="color_dark"><b>{!!$noticia->titulo!!}</b></a></h4>
+                            <h4 class="m_bottom_3"><a href="ver-noticia/{{ $noticia->id}}/{{preg_replace('/[^a-zA-Z0-9.]+/', '-', $noticia->titulo)}}" class="color_dark"><b>{!!$noticia->titulo!!}</b></a></h4>
                             <a href="#" class="color_dark">{!!$noticia->data!!}</a>
                         </figcaption>
                     </figure>

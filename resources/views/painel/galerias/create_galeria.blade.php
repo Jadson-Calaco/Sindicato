@@ -45,7 +45,7 @@
                           {{ csrf_field() }}
                         <div class="form-group"> 
                             <div class='col-sm-9'>
-                                <label for="nome">Nome do Galeria :</label>
+                                <label for="nome">Nome do Galeria asfdasdf:</label>
                                 <input type="text" id="nome" class="form-control" name="nome" value="{{$galeria->nome or ' '}}"required="true"/>
                             </div>
                             <div class='col-sm-9'>
@@ -61,20 +61,16 @@
                                  <input type="text" id="local" class="form-control" name="local" value="{{$galeria->local or ''}}" required="true" />
                             </div>
 
-                            <div class="form-group col-md-9"><br>
-                                            <label for="status">Ativar? *:</label>
-                                            <input type="checkbox" name="status" id="status" data-parsley-mincheck="2"  class="flat" />
+                            <div class="form-group col-md-9"><br><label for="status">Ativar? *:</label>
+                               <input type="checkbox" name="status" id="status" data-parsley-mincheck="2"  class="flat" />
                             <br/>
                                 <label>Exibir como Destaque? *:</label>
                             <p style="padding: 5px;">
                                 <input type="checkbox" name="destaque" value="S" id="hobby1" data-parsley-mincheck="2"  class="flat" />SIM
                                 <br />
                             </p>
-                            </div>        
-
-                           
-                            <input type="hidden" name="dataAtual" value="{{$dataAtual}}"/>
-
+                            </div>    
+                             <input type="hidden" name="dataAtual" value="{{$dataAtual}}"/> 
                            <!-- <div class='col-sm-9'>
                                 <label for="f_fotografo">Autor :</label>
                                 <input type="text" id="f_fotografo" class="form-control" name="f_fotografo" />

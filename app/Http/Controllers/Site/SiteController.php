@@ -52,13 +52,13 @@ class SiteController extends Controller
         ->orderBy('data','DESC')->paginate(2);
         
         //VIDEOS
-        $videos = DB::table('noticias')->where('status','S')
+        $videos = DB::table('videos')->where('status','S')
         ->where('destaque','S')
-        ->orderBy('data','DESC')->paginate(2);
+        ->orderBy('data','DESC')->paginate(3);
         //FOTOS
-        $fotos = DB::table('noticias')->where('status','S')
+        $fotos = DB::table('galerias')->where('status','S')
         ->where('destaque','S')
-        ->orderBy('data','DESC')->paginate(2);
+        ->orderBy('dataCriacao','DESC')->paginate(6);
         
         //CONVENIOS
         $convenios = DB::table('convenios')->where('status','S')
@@ -140,7 +140,7 @@ class SiteController extends Controller
         Mail::send('site.contato.email', $data, function($message)  use ($data){
             
             $message->from($data['email'],$data['nome']);
-            $message->to('desenvolverdor.ideias@gmail.com')->subject('Contato - '.$data['assunto']);
+            $message->to('conatato@bancariospi.org.br')->subject('Contato - '.$data['assunto']);
             
         });
             

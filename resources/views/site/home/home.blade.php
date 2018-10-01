@@ -1,4 +1,5 @@
-@extends('site.templates.template') @section('conteudo')
+@extends('site.templates.template') 
+@section('conteudo')
 <div class="page_content_offset">
 	<div class="container">
 		<!--banners-->
@@ -44,7 +45,7 @@
 			<!--noticias lateral inicio-->
 			<figure class="widget shadow r_corners wrapper m_bottom_30">
 				<figcaption>
-					<h3 class="color_light">DESTAQUES</h3>
+					<h3 class="color_light"><center>DESTAQUES</center></h3>
 				</figcaption>
 
 				<div class="widget_content">
@@ -56,10 +57,10 @@
 							width="100" heigth="100"> <a
 							href="ver-noticia/{{ $destaque->id}}/{{preg_replace('/[^a-zA-Z0-9.]+/', '-',$destaque->titulo)}}"
 							class="color_dark d_block bt_link">{{$destaque->titulo}}</a>
-						<p class="scheme_color">{{$destaque->data}}</p>
+						<p class="scheme_color">{{ strftime("%d/%m/%Y", strtotime($destaque->data))}}</p>
 					</div>
 					<hr class="m_bottom_15">
-
+										
 					@endforeach
 				</div>
 			</figure>
@@ -71,15 +72,21 @@
 	<!--          fim slid       -->
 	<section class="row clearfix">
 		<div class="col-lg-6 col-md-6 col-sm-6 m_bottom_50 m_sm_bottom_35">
-			<a href="{{url('seguranca-bancaria')}}"
-				class="d_block banner animate_ftr wrapper r_corners relative m_xs_bottom_30">
-				<img src="images/banner_img_1.png" alt=""> <span
-				class="banner_caption d_block vc_child t_align_c w_sm_auto"> <span
-					class="d_block color_light tt_uppercase m_bottom_25 m_xs_bottom_10 banner_title"><br>
-						<br> <b>Segurança Bancária</b></span>
-			</span>
-			</a>
+			<a href="{{url('seguranca-bancaria')}}" title="Segurnça bancaria">
+			<div class="col-lg-12 col-md-6 col-sm-6">
+							<div class="r_corners bg_scheme_color glyphicon_item vc_child">
+								<div class="d_inline_middle d_md_block t_align_c">
+									<i class="fa fa-fone-o d_inline_middle m_right_15 color_light d_md_block m_md_bottom_5 m_md_right_0"></i>
+									<dl class="d_inline_middle color_light d_md_block">
+										<dt><b>Seurança</b></dt>
+										<dd class="fw_medium">Bancária</dd>
+									</dl>
+								</div>
+							</div>
+						</div>
+						</a>
 		</div>
+				
 		<div class="col-lg-6 col-md-9 col-sm-6 m_bottom_50 m_sm_bottom_35">
 			<div class="row clearfix">
 						<div class="col-lg-12 col-md-6 col-sm-6">
@@ -131,11 +138,11 @@
 								</tr>
 								<tr>
 									<td><i class="fa fa-calendar"> Data :</i></td>
-									<td><span class="color_green"><strong>{{$agenda->data1}}</strong></span></td>
+									<td><span class="color_green"><strong>{{ strftime("%d/%m/%Y", strtotime($agenda->data1)) }}</strong></span></td>
 								</tr>
 								<tr>
 									<td><i class="fa fa-clock-o">Horário :</i></td>
-									<td>{{$agenda->hora}}</td>
+									<td>{{$agenda->hora}} h</td>
 								</tr>
 							</table>
 				@endforeach
@@ -254,24 +261,23 @@
 				<div class="widget_content">
 					<div class="specials_carousel">
 						<!--carousel item-->
+						@foreach ($videos as $video) 
 						<div class="specials_item">
-							<iframe width="220" height="164"
-								src="https://www.youtube.com/embed/dDPxccX453Y?rel=0"
-								frameborder="0" allowfullscreen></iframe>
+							<iframe width="220" height="164" src="{{ $video->html }}" Bframeborder="0" allowfullscreen></iframe>
 							<h5 class="m_bottom_10">
 								<a href="#" class="color_dark"></a>
 							</h5>
 							<br />
-							<p class="f_size_large m_bottom_15">Nome do Video 1</p>
+							<p class="f_size_large m_bottom_15"><b>{{ $video->nome }}</p>
 							<div class="clearfix m_bottom_5">
 								<ul class="horizontal_list d_inline_b l_width_divider">
 									<li class="m_right_15 f_md_none m_md_right_0"><a href="#"
 										class="color_dark">Geral</a></li>
-									<li class="f_md_none"><a href="#" class="color_dark">29/01/2013
-											as 13hrs</a></li>
+									<li class="f_md_none"><a href="#" class="color_dark">{{$video->dataCriacao or 'NI'}}</a></li>
 								</ul>
 							</div>
 						</div>
+						@endforeach
 
 					</div>
 				</div>
@@ -297,9 +303,8 @@
 						<div class="clearfix m_bottom_5">
 							<ul class="horizontal_list d_inline_b l_width_divider">
 								<li class="m_right_5 f_md_none m_md_right_0"><a href="#"
-									class="color_dark"><strong>|{{ $segundarias->categorias->nome or ' '
-											}}</strong></a></li>
-								<li class="f_md_none"><a href="#" class="color_dark">|{{$segundarias->data}}</a></li>
+									class="color_dark"><strong>|{{ $segundarias->categorias->nome or 'Categoria' }}</strong></a></li>
+								<li class="f_md_none"><a href="#" class="color_dark">| {{ strftime("%d/%m/%Y", strtotime($segundarias->data)) }}</a></li>
 							</ul>
 						</div>
 						<!--product preview-->
@@ -312,7 +317,7 @@
 								mais...</span> <!--description and price of product-->
 							<figcaption>
 								<h5 class="m_bottom_10">
-									<a href="ver-noticia/{{$segundarias->id}}/{{preg_replace('/[^a-zA-Z0-9.]+/', '-',$segundarias->titulo)}}" class="color_dark">{{ $segundarias->titulo}}</a>
+									<a href="ver-noticia/{{$segundarias->id}}/{{preg_replace('/[^a-zA-Z0-9.]+/', '-',$segundarias->titulo)}}" class="color_dark">{{ $segundarias->titulo }}</a>
 								</h5>
 								<!--rating-->
 							</figcaption>

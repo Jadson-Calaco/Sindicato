@@ -55,10 +55,10 @@ class VideoController extends Controller
        $usuario = auth()->user()->id;
     
        $destaque=$request->input('destaque');
-         if ($destaque == 'SIM')
-            $destaque = 'SIM';
+         if ($destaque == 'S')
+            $destaque = 'S';
         else
-            $destaque = 'NAO';
+            $destaque = 'N';
         
         $video->destaque = $destaque;
         $video->visitas = 0;
@@ -66,11 +66,15 @@ class VideoController extends Controller
         $video->nome = $request->input('nome');
         $video->html = $request->input('html');
         $video->descricao =$request->input('descricao');
-        $video->data= $request->input('data'); 
-        $video->dataCriacao= $request->input('dataAtual');   
-        $video->dataAtualizacao= $request->input('dataAtual');   
+        $video->data= $request->input('dataEvento'); 
+        $video->dataCriacao= $request->input('data');   
+        $video->dataAtualizacao= null;   
         $video->user_id=$usuario;
-          $status=$request->input('status');
+        
+       //dd($video->descricao =$request->input('dataAtual'));
+        
+        
+        $status=$request->input('status');
             
             if ($status == '')
             $status = 'N';
@@ -78,9 +82,10 @@ class VideoController extends Controller
             $status = 'S';
         
            $video->status = $status;
-
-        $video->save();
-          $videos=$this->video->all();  
+           
+           $video->data= $request->input('data');
+           $video->save();
+           $videos=$this->video->all();  
         $titulo="Edição";
          \Session::flash('message', 'videos cadastrado com sucesso!');
 return redirect('admin/galeria/videos');    }

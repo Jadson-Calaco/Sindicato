@@ -64,7 +64,7 @@ class DiretoriaController extends Controller
             File::move($imagem,$filepath);
             copy($filepath, $filepath2);
 
-            $img = Image::make($filepath2)->resize(180, 180)->save($filepath2);
+            $img = Image::make($filepath2)->resize(200, 223)->save($filepath2);
 
             $diretoria->imagem = 'M_id_' . $diretoria->id . '.' . $extensao;
             $diretoria->save();
@@ -129,7 +129,7 @@ class DiretoriaController extends Controller
             File::move($imagem,$filepath);
             copy($filepath, $filepath2);
 
-            $img = Image::make($filepath2)->resize(180, 180)->save($filepath2);
+            $img = Image::make($filepath2)->resize(200, 223)->save($filepath2);
 
             $diretoria->imagem = 'M_id_' . $diretoria->id . '.' . $extensao;
             $diretoria->save();

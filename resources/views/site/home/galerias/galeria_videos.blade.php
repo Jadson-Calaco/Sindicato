@@ -29,15 +29,13 @@
             
             <div class="portfolio_item t_xs_align_c portraits">
               <figure class="d_xs_inline_b">
-                <div class="photoframe with_buttons relative shadow r_corners wrapper m_bottom_15">
-                  <video src="{{$video->html}}" type="video/webm"/>
-                  <div class="open_buttons clearfix">
-                    <div class="f_left f_size_large tr_all_hover"><a href="images/img_01.jpg" role="button" class="color_light button_type_13 r_corners box_s_none d_block jackbox" data-group="portfolio" data-title="title 1"><i class="fa fa-camera"></i></a></div>
-                    <div class="f_left m_left_10 f_size_large tr_all_hover"><a href="portfolio_single_1.html" role="button" class="color_light button_type_13 r_corners box_s_none d_block"><i class="fa fa-link"></i></a></div>
-                  </div>
+                <div class="relative shadow r_corners wrapper m_bottom_15">
+                  <iframe width="220" height="170" src="{{ $video->html }}" Bframeborder="0" allowfullscreen></iframe>
+                  
+                  
                 </div>
                 <figcaption class="t_xs_align_l">
-                  <h4 class="m_bottom_3"><b>{{$video->nome}}</b></h4>
+                  <h4 class="m_bottom_3"><b>{{ $video->nome }}</b></h4>
              
                 </figcaption>
               </figure>
